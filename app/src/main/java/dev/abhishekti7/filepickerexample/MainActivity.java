@@ -1,5 +1,6 @@
 package dev.abhishekti7.filepickerexample;
 
+import abhishekti7.unicorn.filepicker.FilePicker;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,9 +15,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.nio.file.attribute.FileTime;
 import java.util.ArrayList;
 
-import abhishekti7.unicorn.filepicker.UnicornFilePicker;
 import abhishekti7.unicorn.filepicker.utils.Constants;
 import dev.abhishekti7.filepickerexample.databinding.ActivityMainBinding;
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         mainBinding.btnFilesDark.setOnClickListener((v)->{
-            UnicornFilePicker.from(MainActivity.this)
+            FilePicker.Companion.from(MainActivity.this)
                     .addConfigBuilder()
                     .selectMultipleFiles(true)
                     .showOnlyDirectory(true)
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mainBinding.btnFilesLight.setOnClickListener((v)->{
-            UnicornFilePicker.from(MainActivity.this)
+            FilePicker.Companion.from(MainActivity.this)
                     .addConfigBuilder()
                     .selectMultipleFiles(true)
                     .setRootDirectory(Environment.getExternalStorageDirectory().getAbsolutePath())
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mainBinding.btnFilesCustom.setOnClickListener((v)->{
-            UnicornFilePicker.from(MainActivity.this)
+            FilePicker.Companion.from(MainActivity.this)
                     .addConfigBuilder()
                     .selectMultipleFiles(true)
                     .setRootDirectory(Environment.getExternalStorageDirectory().getAbsolutePath())
